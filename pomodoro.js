@@ -7,14 +7,18 @@ $( document ).ready(function() {
       var now = new Date();
       var time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
 
-      var hourDiff = (later - now)/60000;
-      console.log(hourDiff);
+      var totalDiff=(later-now);
+      console.log(totalDiff);
+      
+      var minuteDiff = Math.floor(totalDiff/60000);
+      console.log(minuteDiff);
+      
+      var secondDiff = Math.floor((60000-(1500000-totalDiff))/1000);
+      console.log(secondDiff + 'seconds');
     
-      $("#remaining").text(hourDiff + " remaining");
+      $("#remaining").text(minuteDiff + ":" + secondDiff + " seconds remaining.");
       
     }, 1000);
-    
-
     
     var start = new Date();
     var time = start.getHours() + ':' + start.getMinutes() + ':' + start.getSeconds();
@@ -24,7 +28,7 @@ $( document ).ready(function() {
     var timeLimit = later.getHours() + ':' + later.getMinutes() + ':' + later.getSeconds();
     console.log (timeLimit);
     
-    $('<p>Finish Time: ' + timeLimit + '</p>').appendTo('#future');
+    $('#future').text('Finish Time:' + timeLimit);
     
 
     
